@@ -8,7 +8,13 @@ function App() {
       <div>
         <p>
           Coded by Yasaman Moghadas.
-          <a href="https://github.com/yasamanmghds/react_weather_app">Github</a>
+          <a
+            href="https://github.com/yasamanmghds/react_weather_app"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Github
+          </a>
         </p>
       </div>
     </div>
