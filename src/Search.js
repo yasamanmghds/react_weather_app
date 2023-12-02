@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import "./Weather";
+import Weather from "./Weather";
 export default function SearchBar() {
   const [city, setCity] = useState("");
   const [temprature, setTemprature] = useState(null);
@@ -50,7 +51,7 @@ export default function SearchBar() {
             </li>
           </ul>
         ) : (
-          <div />
+          <Weather />
         )}
       </div>
     </div>
