@@ -1,22 +1,25 @@
 import "./App.css";
 import "./Search";
 import SearchBar from "./Search";
+
 function App() {
   return (
     <div className="App">
-      <SearchBar />
-      <div>
-        <p>
-          Coded by Yasaman Moghadas.
+      <div className="container">
+        <SearchBar defaultCity="London" />
+      </div>
+      <footer>
+        <span>
+          Coded By Yasaman Moghadas. Github:{" "}
           <a
             href="https://github.com/yasamanmghds/react_weather_app"
             target="_blank"
             rel="noreferrer"
           >
-            Github
+            yas_mghds
           </a>
-        </p>
-      </div>
+        </span>
+      </footer>
     </div>
   );
 }

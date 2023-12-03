@@ -1,44 +1,37 @@
 import React, { useState } from "react";
-import axios from "axios";
-import DateandTime from "./dateAndTime";
-export default function Weather() {
-  const [report, setReport] = useState({ ready: false });
-  let city = "Rome";
-  function handldeResponse(response) {
-    setReport({
-      ready: true,
-      temprature: Math.round(response.data.main.temp),
-      date: response.data.dt,
-      humidity: response.data.main.humidity,
-      description: response.data.weather[0].description,
-      windSpeed: response.data.wind.speed,
-      icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
-    });
-  }
-  if (report.ready) {
-    return (
-      <div>
-        <h2>{city}</h2>
-        <h3>
-          Date: <DateandTime date={report.date} />
-        </h3>
-        <h4>{report.description}</h4>
-        <h4>
-          <span>
-            <img src={report.icon} />
-          </span>
-          <span>{report.temprature}</span>
-        </h4>
-        <div>
-          <h4>{report.humidity}</h4>
-          <h4>{report.windSpeed} km/h</h4>
+import "bootstrap/dist/css/bootstrap.css";
+import GetDate from "./Getdate";
+import CustomIcon from "./CustomIcon";
+import WeatherTemprature from "./WeatherTemprature";
+
+export default function Weather({ data }) {
+  return (
+    <div className="mt-3">
+      <div className="col-sm-12">
+        <h2 className="text-capitalize">{data.city}</h2>
+        <h2>
+          <GetDate date={data.date} />
+        </h2>
+        <h3 className="text-capitalize">{data.description}</h3>
+      </div>
+      <div className="row">
+        <div className="col-sm-6">
+          <div className="row align-items-start mt-3">
+            <div className="col-sm-3 mt-3">
+              <CustomIcon code={data.icon} size={52} />
+            </div>
+            <div className="col-sm-5">
+              <WeatherTemprature cel={data.temprature} />
+            </div>
+          </div>
+        </div>
+        <div className="col-sm-6">
+          <ul>
+            <li>Humidity: {data.humidity}%</li>
+            <li>Wind speed: {data.windSpeed} km/h</li>
+          </ul>
         </div>
       </div>
-    );
-  } else {
-    const apiKey = "6643c7326a4c2a38838264a28531d97e";
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(url).then(handldeResponse);
-    return "Loading...";
-  }
+    </div>
+  );
 }
