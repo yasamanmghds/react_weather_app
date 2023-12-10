@@ -5,7 +5,6 @@ import "./weather.css";
 export default function WeatherForecastDay({ data }) {
   const days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
   let date = new Date(data.dt * 1000);
-  console.log(date);
   let currentDay = days[date.getDay()];
   return (
     <div className="col">

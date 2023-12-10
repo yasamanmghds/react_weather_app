@@ -8,7 +8,6 @@ export default function SearchBar({ defaultCity }) {
   const [city, setCity] = useState(defaultCity);
 
   function handleResponse(response) {
-    console.log(response);
     setResults({
       ready: true,
       temprature: Math.round(response.data.main.temp),
