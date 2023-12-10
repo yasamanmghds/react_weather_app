@@ -27,7 +27,7 @@ a {
 .weather-container {
   border: 2px solid black;
   border-radius: 10px;
-  width: 50%;
+  width: 60%;
   padding: 20px;
   margin: 50px auto 0 auto;
 }
@@ -42,4 +42,17 @@ a {
 }
 .temp-components-container {
   display: flex;
+}
+
+.forecast-container {
+  text-align: center;
+}
+.temp-box {
+  display: flex;
+  align-items: center;
+}
+@media only screen and (max-width: 1024px) {
+  .weather-container {
+    width: 100%;
+  }
 }

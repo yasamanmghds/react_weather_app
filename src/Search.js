@@ -8,6 +8,7 @@ export default function SearchBar({ defaultCity }) {
   const [city, setCity] = useState(defaultCity);
 
   function handleResponse(response) {
+    console.log(response);
     setResults({
       ready: true,
       temprature: Math.round(response.data.main.temp),
@@ -17,6 +18,7 @@ export default function SearchBar({ defaultCity }) {
       windSpeed: response.data.wind.speed,
       city: response.data.name,
       icon: response.data.weather[0].icon,
+      coords: response.data.coord,
     });
   }
 
